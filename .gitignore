@@ -1,0 +1,41 @@
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+secrets.json
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs & temp files
+*.log
+*.tmp
+*.temp
+
+# Node / Frontend build (if applicable)
+node_modules/
+dist/
+build/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

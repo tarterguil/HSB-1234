@@ -1,0 +1,989 @@
+/* ==========================================================================
+   HARNESS AI AGENTIC - White & Dreamy Blue Glassmorphic Design System
+   Inspired by Apple.com Clean Aesthetic, Frosted Glass & Translucent Oceanic Blues
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Surface & Canvas Colors */
+  --bg-canvas: #f4f8fc;
+  --bg-canvas-subtle: #edf4fa;
+  
+  /* Frosted Glass Layers */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-hover: rgba(255, 255, 255, 0.88);
+  --glass-bg-active: rgba(255, 255, 255, 0.95);
+  --glass-bg-subtle: rgba(240, 246, 255, 0.55);
+  
+  /* Glass Borders & Highlights */
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-border-subtle: rgba(219, 234, 254, 0.6);
+  --glass-border-accent: rgba(59, 130, 246, 0.35);
+  --glass-border-glow: rgba(96, 165, 250, 0.6);
+  
+  /* Dreamy Blue Palette */
+  --dream-blue-900: #0f274a;
+  --dream-blue-800: #1e3a8a;
+  --dream-blue-700: #1d4ed8;
+  --dream-blue-600: #2563eb;
+  --dream-blue-500: #3b82f6;
+  --dream-blue-400: #60a5fa;
+  --dream-blue-300: #93c5fd;
+  --dream-blue-200: #bfdbfe;
+  --dream-blue-100: #dbeafe;
+  --dream-blue-50: #eff6ff;
+  
+  /* Secondary Accents */
+  --accent-cyan: #0284c7;
+  --accent-sky: #0ea5e9;
+  --accent-ice: #e0f2fe;
+  --accent-emerald: #059669;
+  --accent-emerald-light: #ecfdf5;
+  --accent-amber: #d97706;
+  --accent-amber-light: #fffbeb;
+  --accent-rose: #e11d48;
+  --accent-rose-light: #fff1f2;
+  --accent-indigo: #4f46e5;
+  --accent-indigo-light: #eef2ff;
+
+  /* Typography Colors */
+  --text-headline: #0b192c;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --text-brand: #1d4ed8;
+  
+  /* Typography Families */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  
+  /* Gradients */
+  --gradient-dreamy-brand: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 45%, #0284c7 80%, #38bdf8 100%);
+  --gradient-dreamy-glow: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(14, 165, 233, 0.12) 100%);
+  --gradient-card-shine: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 246, 255, 0.6) 100%);
+  --gradient-btn: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0ea5e9 100%);
+  --gradient-btn-hover: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #0284c7 100%);
+  
+  /* Shadows & Depth */
+  --shadow-glass: 0 10px 30px -5px rgba(28, 55, 90, 0.07), 0 4px 12px -2px rgba(28, 55, 90, 0.03), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-glass-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.12), 0 8px 16px -4px rgba(28, 55, 90, 0.06), inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+  --shadow-float: 0 25px 50px -12px rgba(30, 58, 138, 0.15);
+  --shadow-btn: 0 8px 20px -4px rgba(37, 99, 235, 0.35);
+  --shadow-btn-hover: 0 12px 25px -4px rgba(37, 99, 235, 0.5);
+
+  /* Radius */
+  --radius-pill: 9999px;
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  /* Transitions */
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s var(--ease-apple);
+  --transition-normal: all 0.35s var(--ease-apple);
+  --transition-smooth: all 0.5s var(--ease-apple);
+}
+
+/* ==========================================================================
+   Base & Ambient Background Setup
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Dreamy Blue Light Orbs Background */
+.bg-ambient-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(191, 219, 254, 0.6) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(224, 231, 255, 0.55) 0%, transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(224, 242, 254, 0.7) 0%, transparent 50%),
+    radial-gradient(circle at 20% 85%, rgba(186, 230, 253, 0.5) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(219, 234, 254, 0.65) 0%, transparent 45%);
+}
+
+.ambient-blur-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.7;
+  animation: floatSlow 20s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  top: -5%;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, rgba(59, 130, 246, 0.05) 70%, transparent 100%);
+}
+
+.orb-2 {
+  top: 40%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(147, 197, 253, 0.05) 70%, transparent 100%);
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  bottom: -10%;
+  left: 10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.2) 0%, rgba(224, 242, 254, 0.05) 70%, transparent 100%);
+  animation-duration: 22s;
+  animation-delay: -10s;
+}
+
+@keyframes floatSlow {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.08); }
+  100% { transform: translate(-25px, 25px) scale(0.96); }
+}
+
+/* ==========================================================================
+   Typography Hierarchy (Apple-Inspired Cleanliness)
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-headline);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--text-headline);
+  line-height: 1.15;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.text-gradient-dream {
+  background: var(--gradient-dreamy-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* ==========================================================================
+   Apple-Style Glassmorphism Cards & Panels
+   ========================================================================== */
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-glass-hover);
+}
+
+.glass-card-subtle {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-fast);
+}
+
+.glass-card-subtle:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: var(--glass-border-accent);
+}
+
+.glass-card-interactive {
+  cursor: pointer;
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px);
+}
+
+/* Header Banner Card with Soft Azure Glow */
+.glass-card-highlight {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(239, 246, 255, 0.75) 100%);
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  box-shadow: 0 15px 35px -8px rgba(37, 99, 235, 0.12), inset 0 1px 1px #fff;
+}
+
+/* ==========================================================================
+   Navigation Bar (Floating Apple Pill Glass)
+   ========================================================================== */
+
+.nav-wrapper {
+  position: sticky;
+  top: 16px;
+  z-index: 1000;
+  padding: 0 1rem;
+}
+
+.navbar-apple-glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-pill);
+  padding: 10px 24px;
+  box-shadow: 0 10px 30px -5px rgba(28, 55, 90, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: var(--transition-fast);
+}
+
+.navbar-brand-custom {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--text-headline);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--gradient-dreamy-brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.nav-link-apple {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link-apple:hover {
+  color: var(--dream-blue-700);
+  background: rgba(239, 246, 255, 0.85);
+}
+
+.nav-link-apple.active {
+  color: var(--dream-blue-700);
+  background: rgba(219, 234, 254, 0.75);
+  font-weight: 700;
+}
+
+/* Status Pill Badge */
+.status-badge-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(236, 253, 245, 0.85);
+  border: 1px solid rgba(167, 243, 208, 0.9);
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-emerald);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08);
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.6);
+  animation: pulseEmerald 2s infinite;
+}
+
+@keyframes pulseEmerald {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(5, 150, 105, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+}
+
+/* ==========================================================================
+   Hero Section Badges
+   ========================================================================== */
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dream-blue-700);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.hero-pill-badge i {
+  color: var(--dream-blue-500);
+}
+
+.agent-capsule-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(240, 246, 255, 0.9);
+  border: 1px solid rgba(219, 234, 254, 0.9);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dream-blue-800);
+}
+
+/* ==========================================================================
+   Interactive Wizard Step Indicator
+   ========================================================================== */
+
+.wizard-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+.wizard-track-line {
+  position: absolute;
+  top: 50%;
+  left: 3rem;
+  right: 3rem;
+  height: 3px;
+  background: rgba(219, 234, 254, 0.8);
+  z-index: 1;
+  transform: translateY(-50%);
+  border-radius: var(--radius-pill);
+}
+
+.wizard-step-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.wizard-step-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(203, 213, 225, 0.8);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition-normal);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.wizard-step-node.active .wizard-step-circle {
+  background: var(--gradient-btn);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25), 0 8px 20px rgba(37, 99, 235, 0.4);
+  transform: scale(1.08);
+}
+
+.wizard-step-node.completed .wizard-step-circle {
+  background: var(--accent-emerald);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.wizard-step-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+}
+
+.wizard-step-node.active .wizard-step-label {
+  color: var(--dream-blue-700);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Pristine Glass Form Controls & Tags
+   ========================================================================== */
+
+.form-label-custom {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-control-glass,
+.form-select-glass {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  color: var(--text-headline);
+  border-radius: var(--radius-md);
+  padding: 13px 18px;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  transition: var(--transition-fast);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.form-control-glass:focus,
+.form-select-glass:focus {
+  background: #ffffff;
+  border-color: var(--dream-blue-500);
+  color: var(--text-headline);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15), 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+.form-control-glass::placeholder {
+  color: #94a3b8;
+}
+
+/* Dynamic Tags Container */
+.tag-input-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: var(--radius-md);
+  min-height: 52px;
+  transition: var(--transition-fast);
+}
+
+.tag-input-box:focus-within {
+  background: #fff;
+  border-color: var(--dream-blue-500);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.dream-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(219, 234, 254, 0.75);
+  border: 1px solid rgba(147, 197, 253, 0.8);
+  color: var(--dream-blue-800);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.dream-tag-chip:hover {
+  background: rgba(191, 219, 254, 0.95);
+  border-color: var(--dream-blue-500);
+}
+
+.dream-tag-chip.trait-chip {
+  background: rgba(224, 242, 254, 0.8);
+  border-color: rgba(186, 230, 253, 0.9);
+  color: var(--accent-cyan);
+}
+
+.dream-tag-chip .tag-remove-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(30, 58, 138, 0.1);
+  color: var(--dream-blue-800);
+  font-size: 0.75rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: var(--transition-fast);
+}
+
+.dream-tag-chip .tag-remove-btn:hover {
+  background: var(--accent-rose);
+  color: #fff;
+}
+
+.quick-add-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.quick-add-chip:hover {
+  background: rgba(239, 246, 255, 0.95);
+  border-color: var(--dream-blue-400);
+  color: var(--dream-blue-700);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Apple-Style Dreamy Buttons
+   ========================================================================== */
+
+.btn-dream-primary {
+  background: var(--gradient-btn);
+  border: none;
+  color: #ffffff !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-btn);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-dream-primary:hover {
+  background: var(--gradient-btn-hover);
+  box-shadow: var(--shadow-btn-hover);
+  transform: translateY(-2px) scale(1.01);
+  color: #ffffff !important;
+}
+
+.btn-dream-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-dream-secondary {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: var(--text-main) !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-dream-secondary:hover {
+  background: #ffffff;
+  border-color: var(--dream-blue-300);
+  color: var(--dream-blue-700) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.btn-dream-success {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  border: none;
+  color: #fff !important;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-dream-success:hover {
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Real-Time Multi-Agent Loader Section (Keynote Style)
+   ========================================================================== */
+
+.agent-stream-box {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.agent-keynote-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  margin-bottom: 14px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(219, 234, 254, 0.8);
+  transition: var(--transition-normal);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.agent-keynote-card.active {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--dream-blue-500);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.15), 0 0 0 2px rgba(59, 130, 246, 0.2);
+  transform: scale(1.02);
+}
+
+.agent-keynote-card.completed {
+  background: rgba(240, 253, 244, 0.8);
+  border-color: rgba(167, 243, 208, 0.9);
+}
+
+.agent-avatar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: rgba(239, 246, 255, 0.9);
+  color: var(--dream-blue-600);
+  border: 1px solid rgba(191, 219, 254, 0.6);
+  flex-shrink: 0;
+}
+
+.agent-keynote-card.completed .agent-avatar-icon {
+  background: rgba(209, 250, 229, 0.9);
+  color: var(--accent-emerald);
+  border-color: rgba(167, 243, 208, 0.8);
+}
+
+.badge-stream-status {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-stream-pending {
+  background: rgba(241, 245, 249, 0.9);
+  color: var(--text-muted);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.badge-stream-processing {
+  background: rgba(219, 234, 254, 0.9);
+  color: var(--dream-blue-700);
+  border: 1px solid rgba(147, 197, 253, 0.9);
+}
+
+.badge-stream-done {
+  background: rgba(209, 250, 229, 0.9);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(167, 243, 208, 0.9);
+}
+
+/* ==========================================================================
+   Results Dashboard Components (Bento Style)
+   ========================================================================== */
+
+/* Director Strategic Advice Card */
+.director-insight-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(191, 219, 254, 0.9);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.04);
+}
+
+/* Scene Timeline */
+.timeline-track {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 24px;
+  border-left: 2px solid rgba(191, 219, 254, 0.9);
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--dream-blue-500);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+}
+
+.scene-card-glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 6px;
+  transition: var(--transition-fast);
+}
+
+.scene-card-glass:hover {
+  background: #ffffff;
+  border-color: var(--dream-blue-300);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06);
+}
+
+.challenge-callout-glass {
+  background: rgba(255, 241, 242, 0.8);
+  border: 1px solid rgba(254, 205, 211, 0.9);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--accent-rose);
+}
+
+/* Visual Infographic Cards */
+.visual-card-apple {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(219, 234, 254, 0.85);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px -4px rgba(28, 55, 90, 0.05);
+  transition: var(--transition-normal);
+}
+
+.visual-card-apple:hover {
+  background: #ffffff;
+  border-color: var(--dream-blue-400);
+  box-shadow: 0 16px 36px -8px rgba(37, 99, 235, 0.12);
+  transform: translateY(-3px);
+}
+
+.pro-chip {
+  background: rgba(236, 253, 245, 0.9);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(167, 243, 208, 0.9);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.con-chip {
+  background: rgba(255, 241, 242, 0.9);
+  color: var(--accent-rose);
+  border: 1px solid rgba(254, 205, 211, 0.9);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.infographic-frame {
+  background: rgba(240, 246, 255, 0.7);
+  border: 1px solid rgba(219, 234, 254, 0.9);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.infographic-frame img {
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(28, 55, 90, 0.08);
+  transition: var(--transition-smooth);
+}
+
+.infographic-frame:hover img {
+  transform: scale(1.015);
+}
+
+/* ==========================================================================
+   Leaflet Map Light Aesthetic Overrides
+   ========================================================================== */
+
+#map-container {
+  height: 460px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(219, 234, 254, 0.9);
+  box-shadow: var(--shadow-glass);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  color: var(--text-headline) !important;
+  border: 1px solid rgba(191, 219, 254, 0.9) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.15) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+.leaflet-container {
+  background: #f0f6fc !important;
+  font-family: var(--font-body) !important;
+}
+
+/* ==========================================================================
+   Community Gallery Grid Cards
+   ========================================================================== */
+
+.gallery-card-apple {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(219, 234, 254, 0.8);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-glass);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.gallery-card-apple:hover {
+  background: #ffffff;
+  border-color: var(--dream-blue-300);
+  box-shadow: var(--shadow-glass-hover);
+  transform: translateY(-4px);
+}
+
+.gallery-cover-img {
+  height: 190px;
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: var(--transition-smooth);
+}
+
+.gallery-card-apple:hover .gallery-cover-img {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer-apple {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  color: var(--text-muted);
+  padding: 2.5rem 0;
+  margin-top: 5rem;
+}
+
+/* ==========================================================================
+   Responsive Utilities
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .wizard-progress-bar {
+    padding: 0;
+  }
+  .wizard-track-line {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+  .wizard-step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+  .wizard-step-label {
+    font-size: 0.75rem;
+  }
+  .navbar-apple-glass {
+    padding: 8px 16px;
+  }
+}
