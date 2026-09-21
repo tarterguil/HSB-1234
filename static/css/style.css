@@ -987,3 +987,43 @@ h1, h2, h3, h4, h5, h6 {
     padding: 8px 16px;
   }
 }
+
+/* ==========================================================================
+   Lite / Eco Performance Mode (For Weaker PCs)
+   ========================================================================== */
+
+body.perf-mode-lite * {
+  /* Disable all transitions and animations to save CPU/GPU cycles */
+  transition: none !important;
+  animation-duration: 0.001s !important;
+}
+
+body.perf-mode-lite .bg-ambient-layer {
+  display: none !important;
+}
+
+body.perf-mode-lite .glass-card,
+body.perf-mode-lite .navbar-apple-glass,
+body.perf-mode-lite .glass-card-subtle,
+body.perf-mode-lite .scene-card-glass,
+body.perf-mode-lite .form-control-glass,
+body.perf-mode-lite .form-select-glass {
+  /* Remove expensive backdrop-filter (blur) */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  /* Use solid background colors instead of translucent ones */
+  background-color: #ffffff !important;
+  /* Simplify shadows */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+body.perf-mode-lite {
+  /* Provide a simple solid background instead of the ambient meshes */
+  background: var(--bg-canvas) !important;
+}
+
+body.perf-mode-lite .status-pulse-dot {
+  /* Remove pulse shadow animation */
+  animation: none !important;
+  box-shadow: none !important;
+}

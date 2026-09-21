@@ -621,3 +621,35 @@ async function loadGallery() {
     `;
   }).join("");
 }
+
+// ==========================================================================
+// Performance / Lite Mode Toggle (For Weaker PCs)
+// ==========================================================================
+
+function togglePerfMode() {
+  const isLite = document.body.classList.toggle('perf-mode-lite');
+  localStorage.setItem('harness_perf_mode_lite', isLite ? 'true' : 'false');
+  updatePerfButtonState(isLite);
+}
+
+function updatePerfButtonState(isLite) {
+  const btn = document.getElementById('btn-perf-toggle');
+  if (!btn) return;
+  if (isLite) {
+    btn.classList.replace('btn-dream-secondary', 'btn-dream-success');
+    btn.innerHTML = '<i class="fa-solid fa-leaf"></i> <span class="d-none d-sm-inline">Lite Mode: ON</span>';
+  } else {
+    btn.classList.replace('btn-dream-success', 'btn-dream-secondary');
+    btn.innerHTML = '<i class="fa-solid fa-leaf"></i> <span class="d-none d-sm-inline">Lite Mode</span>';
+  }
+}
+
+// Apply on load
+document.addEventListener("DOMContentLoaded", () => {
+  const isLite = localStorage.getItem('harness_perf_mode_lite') === 'true';
+  if (isLite) {
+    document.body.classList.add('perf-mode-lite');
+    // Ensure button state is updated after DOM is fully parsed
+    setTimeout(() => updatePerfButtonState(true), 10);
+  }
+});
